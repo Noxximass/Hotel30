@@ -3,6 +3,7 @@ package Entidades;
 
 
 public class Huesped {
+    private int idHuesped;
     private String nombre;
     private int dni;
     private String domicilio;
@@ -13,13 +14,22 @@ public class Huesped {
     public Huesped() {
     }
 
-    public Huesped(String nombre, int dni, String domicilio, String correo, int celular, boolean alojado) {
+    public Huesped(int idHuesped, String nombre, int dni, String domicilio, String correo, int celular, boolean alojado) {
+        this.idHuesped = idHuesped;
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
         this.correo = correo;
         this.celular = celular;
         this.alojado = alojado;
+    }
+
+    public int getIdHuesped() {
+        return idHuesped;
+    }
+
+    public void setIdHuesped(int idHuesped) {
+        this.idHuesped = idHuesped;
     }
 
     public String getNombre() {
@@ -70,6 +80,7 @@ public class Huesped {
         this.alojado = alojado;
     }
 
+   
  
     
     

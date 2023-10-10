@@ -18,7 +18,7 @@ public class ReservaData {
     
     public void hacerReserva(Reserva reserva){
         
-        Strng sql ="INSERT INTO reserva ()"
+        String sql ="INSERT INTO reserva ()";
     
     }
 }
