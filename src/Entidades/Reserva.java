@@ -4,18 +4,19 @@ import java.time.LocalDate;
 
 public class Reserva {
 
-    private String idReserva;
+    private int idReserva;
     private Huesped huesped;
     private tipoHab habitacion;
     private int cantPer;
     private LocalDate fechaIng;
     private LocalDate fechaSal;
     private double importe;
+    private boolean estado;
 
     public Reserva() {
     }
 
-    public Reserva(String idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe) {
+    public Reserva(int idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
         this.idReserva = idReserva;
         this.huesped = huesped;
         this.habitacion = habitacion;
@@ -23,13 +24,14 @@ public class Reserva {
         this.fechaIng = fechaIng;
         this.fechaSal = fechaSal;
         this.importe = importe;
+        this.estado = estado;
     }
 
-    public String getIdReserva() {
+    public int getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(String idReserva) {
+    public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
     }
 
@@ -80,5 +82,15 @@ public class Reserva {
     public void setImporte(double importe) {
         this.importe = importe;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+   
 
 }

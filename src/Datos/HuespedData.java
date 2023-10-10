@@ -73,7 +73,7 @@ public class HuespedData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped");
         }
     }
-
+    
     public Huesped buscarHuespedDni(int dni) {
 
         String sql = "SELECT nombre, domicilio, correo, celular, alojado FROM huesped WHERE dni=?";
@@ -91,10 +91,45 @@ public class HuespedData {
                 huesped.setDomicilio(rs.getString("domicilio"));
                 huesped.setCorreo(rs.getString("correo"));
                 huesped.setCelular(rs.getInt("celular"));
+                huesped.setAlojado(rs.getBoolean("alojado"));
 
             } else {
 
                 JOptionPane.showMessageDialog(null, "Ese DNI no corresponde a un Huesped de la Base de datos");
+
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped");
+        }
+        return huesped;
+
+    }
+
+    public Huesped buscarHuespedId(int id) {
+
+        String sql = "SELECT nombre,dni, domicilio, correo, celular, alojado FROM huesped WHERE idHuesped=?";
+        Huesped huesped = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                huesped = new Huesped();
+                huesped.setIdHuesped(id);
+                huesped.setDni(rs.getInt("dni"));
+                huesped.setNombre(rs.getString("nombre"));
+                huesped.setDomicilio(rs.getString("domicilio"));
+                huesped.setCorreo(rs.getString("correo"));
+                huesped.setCelular(rs.getInt("celular"));
+                huesped.setAlojado(rs.getBoolean("alojado"));
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Ese ID no corresponde a un Huesped de la Base de datos");
 
             }
             ps.close();
