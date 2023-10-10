@@ -78,10 +78,10 @@ public class HabitacionData {
     
     }
     
-    public void BuscarHab(int id){
+    public tipoHab BuscarHab(int id){
         
         String sql = "SELECT cantPerMax, cantCamas, tipoCamas, precioNoch, estado FROM tipoHab WHERE idHab = ?";
-        
+        tipoHab habitacion = null;
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                ps.setInt(1, id);
@@ -90,7 +90,7 @@ public class HabitacionData {
                
                if(rs.next()){
                
-                   tipoHab habitacion = new tipoHab();
+                   habitacion = new tipoHab();
                    habitacion.setIdHabitacion(id);
                    habitacion.setCantPerMax(rs.getInt("cantPerMax"));
                    habitacion.setCantCamas(rs.getInt("cantCamas"));
@@ -101,7 +101,7 @@ public class HabitacionData {
            } catch (SQLException ex) {
                JOptionPane.showMessageDialog(null,"Error al acceder a la tabla tipoHab");
            }
-    
+    return habitacion;
     
     }
 }
