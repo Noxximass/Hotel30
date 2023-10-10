@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Reserva {
     
-    private huesped huesped;
+    private Huesped huesped;
     private tipoHabitacion habitacion;
     private int cantPer;
     private LocalDate fechaIng;

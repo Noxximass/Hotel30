@@ -2,17 +2,17 @@
 package Entidades;
 
 
-public class huesped {
+public class Huesped {
     private String nombre;
     private int dni;
     private String domicilio;
     private String correo;
     private int celular;
 
-    public huesped() {
+    public Huesped() {
     }
 
-    public huesped(String nombre, int dni, String domicilio, String correo, int celular) {
+    public Huesped(String nombre, int dni, String domicilio, String correo, int celular) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
