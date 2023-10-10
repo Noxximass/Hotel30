@@ -1,11 +1,9 @@
-
 package Entidades;
 
 import java.time.LocalDate;
 
-
 public class Reserva {
-    
+
     private String idReserva;
     private Huesped huesped;
     private tipoHab habitacion;
@@ -82,7 +80,5 @@ public class Reserva {
     public void setImporte(double importe) {
         this.importe = importe;
     }
-    
-    
-    
+
 }

@@ -1,8 +1,7 @@
-
 package Entidades;
 
 public class tipoHab {
-    
+
     private int idHabitacion;
     private int cantPerMax;
     private int cantCamas;
@@ -70,8 +69,4 @@ public class tipoHab {
         this.estado = estado;
     }
 
-    
-    
-    
-    
 }

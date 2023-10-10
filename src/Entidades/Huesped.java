@@ -1,8 +1,7 @@
-
 package Entidades;
 
-
 public class Huesped {
+
     private int idHuesped;
     private String nombre;
     private int dni;
@@ -80,8 +79,4 @@ public class Huesped {
         this.alojado = alojado;
     }
 
-   
- 
-    
-    
 }

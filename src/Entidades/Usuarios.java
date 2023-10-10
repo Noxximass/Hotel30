@@ -1,10 +1,9 @@
-
 package Entidades;
 
 import java.time.LocalDate;
 
-
 public class Usuarios {
+
     private String usuario;
     private String contraseña;
     private int dni;
@@ -92,6 +91,4 @@ public class Usuarios {
         this.cargo = cargo;
     }
 
-    
- 
 }
