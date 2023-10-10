@@ -1,5 +1,6 @@
 package Datos;
 
+import Entidades.Huesped;
 import Entidades.Reserva;
 import java.sql.Connection;
 import java.sql.Date;
@@ -87,7 +88,8 @@ public class ReservaData {
             while   (rs.next()){
             
                 Reserva reserva= new Reserva();
-                Huesped hues= hud.
+                Huesped hues= hud.buscarHuespedId(rs.getInt("huesped"));
+                tipoHab hab= had.(rs.getInt("huesped"));
             
             }
         } catch (SQLException ex) {
