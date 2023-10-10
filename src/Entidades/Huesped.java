@@ -8,16 +8,18 @@ public class Huesped {
     private String domicilio;
     private String correo;
     private int celular;
+    private boolean alojado;
 
     public Huesped() {
     }
 
-    public Huesped(String nombre, int dni, String domicilio, String correo, int celular) {
+    public Huesped(String nombre, int dni, String domicilio, String correo, int celular, boolean alojado) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
         this.correo = correo;
         this.celular = celular;
+        this.alojado = alojado;
     }
 
     public String getNombre() {
@@ -59,6 +61,16 @@ public class Huesped {
     public void setCelular(int celular) {
         this.celular = celular;
     }
+
+    public boolean isAlojado() {
+        return alojado;
+    }
+
+    public void setAlojado(boolean alojado) {
+        this.alojado = alojado;
+    }
+
+ 
     
     
 }
