@@ -71,6 +71,7 @@ public class HuespedData {
             
                 JOptionPane.showMessageDialog(null,"Huesped actualizado");
             }
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla huesped");
         }
@@ -99,6 +100,7 @@ public class HuespedData {
                 JOptionPane.showMessageDialog(null,"Ese DNI no corresponde a un Huesped de la Base de datos");
             
             }
+            ps.close();
             
             
         } catch (SQLException ex) {
