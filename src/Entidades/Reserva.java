@@ -3,7 +3,7 @@ package Entidades;
 import java.time.LocalDate;
 
 public class Reserva {
-
+    private Usuarios usuario;
     private int idReserva;
     private Huesped huesped;
     private tipoHab habitacion;
@@ -16,7 +16,8 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
+    public Reserva(Usuarios usuario, int idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
+        this.usuario = usuario;
         this.idReserva = idReserva;
         this.huesped = huesped;
         this.habitacion = habitacion;
@@ -25,6 +26,14 @@ public class Reserva {
         this.fechaSal = fechaSal;
         this.importe = importe;
         this.estado = estado;
+    }
+
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
     }
 
     public int getIdReserva() {
@@ -90,6 +99,8 @@ public class Reserva {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    
 
    
 
