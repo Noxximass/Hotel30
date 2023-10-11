@@ -72,6 +72,7 @@ public class ReservaData {
                 JOptionPane.showMessageDialog(null, "Reserva dada de baja");
 
             }
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla reserva");
         }
@@ -198,6 +199,7 @@ public class ReservaData {
                 reservas.add(reserva);
 
             }
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla reserva");
         }
