@@ -3,12 +3,7 @@ package Datos;
 import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.tipoHab;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +23,7 @@ public class ReservaData {
 
     }
 // hacer reserva es para agregar reservas
+
     public void hacerReserva(Reserva reserva) {
 
         String sql = "INSERT INTO reserva (usuario,huesped,habitacion,cantPer,fechaIng,fechaSal,importe,estado)"
@@ -35,7 +31,7 @@ public class ReservaData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1,reserva.getUsuario().getUsuario());
+            ps.setString(1, reserva.getUsuario().getUsuario());
             ps.setInt(2, reserva.getHuesped().getIdHuesped());
             ps.setInt(3, reserva.getHabitacion().getIdHabitacion());
             ps.setInt(4, reserva.getCantPer());
@@ -58,6 +54,7 @@ public class ReservaData {
 
     }
 // Baja de reserva es para dar de baja a una reserva realizada
+
     public void bajaReserva(int id) {
 
         String sql = "UPDATE reserva SET estado = 0  WHERE idReserva = ?";
@@ -79,6 +76,7 @@ public class ReservaData {
 
     }
 //listar reservas es para listar las reservas activas
+
     public List<Reserva> listadoReservas() {
 
         String sql = "SELECT huesped,habitacion,cantPer,fechaIng,fechaSal FROM reserva WHERE estado=1";
@@ -110,6 +108,7 @@ public class ReservaData {
 
     }
 // listado para reservar muestra las reservas dadas de baja
+
     public List<Reserva> listadoParaReservar() {
 
         String sql = "SELECT huesped,habitacion,cantPer,fechaIng,fechaSal FROM reserva WHERE estado=0";
@@ -140,15 +139,15 @@ public class ReservaData {
         return reservas;
 
     }
-    
-   public List<Reserva> listadoReservasPorHuesped(int idHuesped) {
+
+    public List<Reserva> listadoReservasPorHuesped(int idHuesped) {
 
         String sql = "SELECT habitacion,cantPer,fechaIng,fechaSal,estado FROM reserva WHERE huesped=?";
         ArrayList<Reserva> reservas = new ArrayList<>();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,idHuesped);
+            ps.setInt(1, idHuesped);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -171,19 +170,18 @@ public class ReservaData {
 
         return reservas;
 
-    } 
-   
-   public List<Reserva> ListadoPorMes(LocalDate fecha1, LocalDate fecha2){
-   
-       
-       String sql = "SELECT habitacion,cantPer,fechaIng,fechaSal,estado FROM reserva"
-               + " WHERE fechaIng BETWEEN fecha1=? AND fecha2=?";
-       ArrayList<Reserva> reservas = new ArrayList<>();
+    }
+
+    public List<Reserva> ListadoPorMes(LocalDate fecha1, LocalDate fecha2) {
+
+        String sql = "SELECT habitacion,cantPer,fechaIng,fechaSal,estado FROM reserva"
+                + " WHERE fechaIng BETWEEN fecha1=? AND fecha2=?";
+        ArrayList<Reserva> reservas = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setDate(1, Date.valueOf(fecha1));
             ps.setDate(2, Date.valueOf(fecha2));
-            
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -203,9 +201,9 @@ public class ReservaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a tabla reserva");
         }
-        
+
         return reservas;
-       
-   }
-   
+
+    }
+
 }

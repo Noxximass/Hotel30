@@ -3,11 +3,7 @@ package Datos;
 
 import Entidades.Reserva;
 import Entidades.tipoHab;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,7 +39,7 @@ public class HabitacionData {
                if (rs.next()) {
                    
                    habitacion.setIdHabitacion(rs.getInt(1));
-                   JOptionPane.showMessageDialog(null, "Habitacion cargada correctamente");
+                   //JOptionPane.showMessageDialog(null, "Habitacion cargada correctamente");
                }
                ps.close();
            } catch (SQLException ex) {
