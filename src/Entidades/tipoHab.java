@@ -12,6 +12,14 @@ public class tipoHab {
     public tipoHab() {
     }
 
+    public tipoHab(int cantPerMax, int cantCamas, String tipoCamas, int precioNoch, boolean estado) {
+        this.cantPerMax = cantPerMax;
+        this.cantCamas = cantCamas;
+        this.tipoCamas = tipoCamas;
+        this.precioNoch = precioNoch;
+        this.estado = estado;
+    }
+
     public tipoHab(int idHabitacion, int cantPerMax, int cantCamas, String tipoCamas, int precioNoch, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.cantPerMax = cantPerMax;

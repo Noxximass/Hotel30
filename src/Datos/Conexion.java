@@ -1,8 +1,8 @@
 package Datos;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Conexion {
@@ -19,11 +19,9 @@ public class Conexion {
     public static Connection getConexion() {
 
         if (connection == null) {
-
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
                 connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
-
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los drivers");
             } catch (SQLException ex) {
