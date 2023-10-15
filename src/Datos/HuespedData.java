@@ -22,6 +22,7 @@ public class HuespedData {
 
     }
 // guardar huesped es para agendar los huespedes y agregarlos a la db
+
     public void guardarHuesped(Huesped huesped) {
 
         String sql = "INSERT INTO huesped (nombre,dni,domicilio,correo,celular) "
@@ -51,6 +52,7 @@ public class HuespedData {
         }
     }
 // actualizar es para modificar buscando con el dni los datos de huespeded o actualizar datos
+
     public void actualizarHuesped(Huesped huesped) {
 
         String sql = "UPDATE huesped SET domicilio=? , correo=?, celular=?"
@@ -73,7 +75,8 @@ public class HuespedData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped");
         }
     }
-  // buscar huespede por dni   
+    // buscar huespede por dni   
+
     public Huesped buscarHuespedDni(int dni) {
 
         String sql = "SELECT nombre, domicilio, correo, celular, alojado FROM huesped WHERE dni=?";
@@ -107,6 +110,7 @@ public class HuespedData {
 
     }
 // buscar huesped por id
+
     public Huesped buscarHuespedId(int id) {
 
         String sql = "SELECT nombre,dni, domicilio, correo, celular, alojado FROM huesped WHERE idHuesped=?";
@@ -141,6 +145,7 @@ public class HuespedData {
 
     }
 // listado de huespedes que estan dentro del hotel alojados
+
     public List<Huesped> listarHuespedesAlojados() {
         String sql = "SELECT nombre, domicilio, correo, celular FROM huesped WHERE alojado=1";
         ArrayList<Huesped> huespedes = new ArrayList<>();

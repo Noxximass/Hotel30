@@ -1,12 +1,15 @@
 
 package Datos;
 
+import Entidades.Reserva;
 import Entidades.tipoHab;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -102,6 +105,39 @@ public class HabitacionData {
                JOptionPane.showMessageDialog(null,"Error al acceder a la tabla tipoHab");
            }
     return habitacion;
+    
+    }
+    
+    
+        public List<tipoHab> BuscarHabPorTipo(String cantCamas, String tipoCamas){
+        
+        String sql = "SELECT idHab,cantPerMax, precioNoch, FROM tipoHab WHERE cantCamas = ? AND tipoCamas=? AND estado=0";
+        tipoHab habitacion = null;
+        ArrayList<tipoHab> habitaciones = new ArrayList<>();
+           try {
+               PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+               ps.setString(1, cantCamas);
+               ps.setString(1, tipoCamas);
+               
+               ResultSet rs = ps.executeQuery();
+               
+               while(rs.next()){
+               
+                   habitacion = new tipoHab();
+                   habitacion.setIdHabitacion(rs.getInt("idHab"));
+                   habitacion.setCantPerMax(rs.getInt("cantPerMax"));
+                   habitacion.setCantCamas(rs.getInt("cantCamas"));
+                   habitacion.setTipoCamas(rs.getString("tipoCamas"));
+                   habitacion.setPrecioNoch(rs.getInt("precioNoch"));
+                   habitacion.setEstado(rs.getBoolean("estado"));
+                   habitaciones.add(habitacion);
+               }
+               ps.close();
+               
+           } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null,"Error al acceder a la tabla tipoHab");
+           }
+    return habitaciones;
     
     }
 }
