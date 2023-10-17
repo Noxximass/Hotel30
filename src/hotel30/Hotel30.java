@@ -3,6 +3,8 @@ package hotel30;
 
 import Datos.Conexion;
 import Datos.HabitacionData;
+import Datos.HuespedData;
+import Entidades.Huesped;
 import Entidades.tipoHab;
 import java.sql.Connection;
 
@@ -15,8 +17,13 @@ public class Hotel30 {
      // Connection con = Conexion.getConexion();
      
        HabitacionData habd= new HabitacionData();
-        tipoHab hab= new tipoHab();
-        for (int i = 1; i < 200; i++) {
+       HuespedData husd= new HuespedData();
+//       Huesped huesped = new Huesped(0, "tomas", 4564654, "san luis", "asd@asd", 54654654, true);
+//       husd.guardarHuesped(huesped);
+       tipoHab hab;
+      hab = new tipoHab();
+     habd.CargarHab(hab);
+        /*for (int i = 1; i < 200; i++) {
             
             if (i>=2 && 1<=50) {
                 
@@ -66,7 +73,7 @@ public class Hotel30 {
                 hab.setEstado(false);
                 habd.cargarHab(hab);
             }
-        }
+        }*/
         
     }
     

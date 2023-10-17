@@ -39,6 +39,7 @@ public class ReservaData {
             ps.setDate(6, Date.valueOf(reserva.getFechaSal()));
             ps.setDouble(7, reserva.getImporte());
             ps.setBoolean(8, reserva.isEstado());
+            ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
 

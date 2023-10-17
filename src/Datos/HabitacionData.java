@@ -21,36 +21,39 @@ public class HabitacionData {
         
     }
     
-    public void cargarHab(tipoHab habitacion){
-    
-        String sql = "INSERT INTO tipohab(cantPerMax,cantCamas,tipoCamas,precioNoch,estado)"
-                +"VALUES (?,?,?,?,?)";
+    public void CargarHab(tipoHab habitacion){
+        
+        String sql = "INSERT INTO habitaciones(cantPerMax,cantCamas, tipoCamas,precioNoch,estado)"
+                + "VALUES (?,?,?,?,?)";
         
            try {
-               PreparedStatement ps= con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-               ps.setInt(1,habitacion.getCantPerMax());
-               ps.setInt(2,habitacion.getCantCamas());
-               ps.setString(3,habitacion.getTipoCamas());
-               ps.setDouble(4,habitacion.getPrecioNoch());
-               ps.setBoolean(4,habitacion.isEstado());
-               ps.executeUpdate();
+               PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+               
+               ps.setInt(1, habitacion.getCantPerMax());
+               ps.setInt(2, habitacion.getCantCamas());
+               ps.setString(3, habitacion.getTipoCamas());
+               ps.setDouble(4, habitacion.getPrecioNoch());
+               ps.setBoolean(5, habitacion.isEstado());
+               ps.execute();
+               
                ResultSet rs= ps.getGeneratedKeys();
                
                if (rs.next()) {
-                   
                    habitacion.setIdHabitacion(rs.getInt(1));
-                   JOptionPane.showMessageDialog(null, "Habitacion cargada correctamente");
+                   
+                   JOptionPane.showMessageDialog(null, "Habitacion agregada");
+                   
                }
-               ps.close();
            } catch (SQLException ex) {
-               //JOptionPane.showMessageDialog(null,"Error al acceder a la tabla tipohab");
+               JOptionPane.showMessageDialog(null, "Error al cargar en tabla habitaciones");
            }
+    
     }
     
     
     public void modificarHab(tipoHab habitacion){
     
-        String sql= "UPDATE tipohab SET cantPerMax, cantCamas, tipoCamas, precioNoch, estado"
+        String sql= "UPDATE habitaciones SET cantPerMax, cantCamas, tipoCamas, precioNoch, estado"
                 + "WHERE idHab=?";
         
            try {
@@ -62,7 +65,6 @@ public class HabitacionData {
                ps.setInt(4, habitacion.getPrecioNoch());
                ps.setBoolean(5, habitacion.isEstado());
                ps.setInt(6, habitacion.getIdHabitacion());
-               
                int exito = ps.executeUpdate();
                
                if (exito==1) {
