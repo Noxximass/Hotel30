@@ -34,14 +34,14 @@ public class HabitacionData {
                ps.setString(3, habitacion.getTipoCamas());
                ps.setDouble(4, habitacion.getPrecioNoch());
                ps.setBoolean(5, habitacion.isEstado());
-               ps.execute();
+               ps.executeQuery();
                
                ResultSet rs= ps.getGeneratedKeys();
                
                if (rs.next()) {
                    habitacion.setIdHabitacion(rs.getInt(1));
                    
-                   JOptionPane.showMessageDialog(null, "Habitacion agregada");
+                   //JOptionPane.showMessageDialog(null, "Habitacion agregada");
                    
                }
            } catch (SQLException ex) {
