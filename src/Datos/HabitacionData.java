@@ -23,17 +23,18 @@ public class HabitacionData {
     
     public void CargarHab(tipoHab habitacion){
         
-        String sql = "INSERT INTO habitaciones(cantPerMax,cantCamas, tipoCamas,precioNoch,estado)"
-                + "VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO habitaciones(tipoHab,cantPerMax,cantCamas, tipoCamas,precioNoch,estado)"
+                + "VALUES (?,?,?,?,?,?)";
         
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                
-               ps.setInt(1, habitacion.getCantPerMax());
-               ps.setInt(2, habitacion.getCantCamas());
-               ps.setString(3, habitacion.getTipoCamas());
-               ps.setDouble(4, habitacion.getPrecioNoch());
-               ps.setBoolean(5, habitacion.isEstado());
+               ps.setString(1, habitacion.getTipoHab());
+               ps.setInt(2, habitacion.getCantPerMax());
+               ps.setInt(3, habitacion.getCantCamas());
+               ps.setString(4, habitacion.getTipoCamas());  
+               ps.setDouble(5, habitacion.getPrecioNoch());
+               ps.setBoolean(6, habitacion.isEstado());
                ps.executeQuery();
                
                ResultSet rs= ps.getGeneratedKeys();
@@ -53,18 +54,19 @@ public class HabitacionData {
     
     public void modificarHab(tipoHab habitacion){
     
-        String sql= "UPDATE habitaciones SET cantPerMax, cantCamas, tipoCamas, precioNoch, estado"
+        String sql= "UPDATE habitaciones SET tipoHab=?,cantPerMax=?, cantCamas=?, tipoCamas=?, precioNoch=?, estado=?"
                 + "WHERE idHab=?";
         
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                
-               ps.setInt(1, habitacion.getCantPerMax());
-               ps.setInt(2, habitacion.getCantCamas());
-               ps.setString(3, habitacion.getTipoCamas());
-               ps.setInt(4, habitacion.getPrecioNoch());
-               ps.setBoolean(5, habitacion.isEstado());
-               ps.setInt(6, habitacion.getIdHabitacion());
+               ps.setString(1, habitacion.getTipoHab());
+               ps.setInt(2, habitacion.getCantPerMax());
+               ps.setInt(3, habitacion.getCantCamas());
+               ps.setString(4, habitacion.getTipoCamas());  
+               ps.setDouble(5, habitacion.getPrecioNoch());
+               ps.setBoolean(6, habitacion.isEstado());
+               ps.setInt(7, habitacion.getIdHabitacion());
                int exito = ps.executeUpdate();
                
                if (exito==1) {
@@ -81,7 +83,7 @@ public class HabitacionData {
     
     public tipoHab BuscarHab(int id){
         
-        String sql = "SELECT cantPerMax, cantCamas, tipoCamas, precioNoch, estado FROM tipoHab WHERE idHab = ?";
+        String sql = "SELECT tipoHab,cantPerMax, cantCamas, tipoCamas, precioNoch, estado FROM tipoHab WHERE idHab = ?";
         tipoHab habitacion = null;
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -93,6 +95,7 @@ public class HabitacionData {
                
                    habitacion = new tipoHab();
                    habitacion.setIdHabitacion(id);
+                   habitacion.setTipoHab("tipoHab");
                    habitacion.setCantPerMax(rs.getInt("cantPerMax"));
                    habitacion.setCantCamas(rs.getInt("cantCamas"));
                    habitacion.setPrecioNoch(rs.getInt("precioNoch"));
@@ -107,15 +110,14 @@ public class HabitacionData {
     }
     
     
-        public List<tipoHab> BuscarHabPorTipo(String cantCamas, String tipoCamas){
+        public List<tipoHab> BuscarHabPorTipo(String tipoHab){
         
-        String sql = "SELECT idHab,cantPerMax, precioNoch, FROM tipoHab WHERE cantCamas = ? AND tipoCamas=? AND estado=0";
+        String sql = "SELECT idHab,cantPerMax, cantCamas,tipoCamas, precioNoch, FROM tipoHab WHERE cantCamas = ? AND tipoHab=?";
         tipoHab habitacion = null;
         ArrayList<tipoHab> habitaciones = new ArrayList<>();
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-               ps.setString(1, cantCamas);
-               ps.setString(1, tipoCamas);
+               ps.setString(1, tipoHab);
                
                ResultSet rs = ps.executeQuery();
                
@@ -123,6 +125,7 @@ public class HabitacionData {
                
                    habitacion = new tipoHab();
                    habitacion.setIdHabitacion(rs.getInt("idHab"));
+                   habitacion.setTipoHab(tipoHab);
                    habitacion.setCantPerMax(rs.getInt("cantPerMax"));
                    habitacion.setCantCamas(rs.getInt("cantCamas"));
                    habitacion.setTipoCamas(rs.getString("tipoCamas"));

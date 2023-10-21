@@ -3,6 +3,7 @@ package Entidades;
 public class tipoHab {
 
     private int idHabitacion;
+    private String tipoHab;
     private int cantPerMax;
     private int cantCamas;
     private String tipoCamas;
@@ -12,16 +13,8 @@ public class tipoHab {
     public tipoHab() {
     }
 
-    public tipoHab(int cantPerMax, int cantCamas, String tipoCamas, int precioNoch, boolean estado) {
-        this.cantPerMax = cantPerMax;
-        this.cantCamas = cantCamas;
-        this.tipoCamas = tipoCamas;
-        this.precioNoch = precioNoch;
-        this.estado = estado;
-    }
-
-    public tipoHab(int idHabitacion, int cantPerMax, int cantCamas, String tipoCamas, int precioNoch, boolean estado) {
-        this.idHabitacion = idHabitacion;
+    public tipoHab(String tipoHab, int cantPerMax, int cantCamas, String tipoCamas, int precioNoch, boolean estado) {
+        this.tipoHab = tipoHab;
         this.cantPerMax = cantPerMax;
         this.cantCamas = cantCamas;
         this.tipoCamas = tipoCamas;
@@ -35,6 +28,14 @@ public class tipoHab {
 
     public void setIdHabitacion(int idHabitacion) {
         this.idHabitacion = idHabitacion;
+    }
+
+    public String getTipoHab() {
+        return tipoHab;
+    }
+
+    public void setTipoHab(String tipoHab) {
+        this.tipoHab = tipoHab;
     }
 
     public int getCantPerMax() {
@@ -76,5 +77,9 @@ public class tipoHab {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    
+
+    
 
 }
