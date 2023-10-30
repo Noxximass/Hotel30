@@ -26,6 +26,7 @@ public class HabitacionData {
         String sql = "INSERT INTO habitaciones(tipoHab,cantPerMax,cantCamas, tipoCamas,precioNoch,estado)"
                 + "VALUES (?,?,?,?,?,?)";
         
+        
            try {
                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                
