@@ -95,7 +95,7 @@ public class HabitacionData {
                
                    habitacion = new tipoHab();
                    habitacion.setIdHabitacion(id);
-                   habitacion.setTipoHab("tipoHab");
+                   habitacion.setTipoHab(rs.getString("tipoHab"));
                    habitacion.setCantPerMax(rs.getInt("cantPerMax"));
                    habitacion.setCantCamas(rs.getInt("cantCamas"));
                    habitacion.setPrecioNoch(rs.getInt("precioNoch"));

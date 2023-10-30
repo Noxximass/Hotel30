@@ -84,6 +84,8 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void jbIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresoActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jbIngresoActionPerformed
 
     /**
