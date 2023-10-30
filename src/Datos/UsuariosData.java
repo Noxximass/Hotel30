@@ -3,6 +3,8 @@ package Datos;
 
 import Entidades.Usuarios;
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +50,37 @@ public class UsuariosData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla usuarios");
         }
+    }
+    
+    public Usuarios ingresoDesmpleado(String usuario, String contraseña){
+    
+        String sql =  "SELECT usuario, contraseña,dni, nombre, apellido , fechaNac,direccion , cargo FROM usuarios usuario=? AND contraseña=?";
+        Usuarios empleado = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                
+                empleado = new Usuarios();
+                empleado.setUsuario(rs.getString("usuario"));
+                empleado.setContraseña(rs.getString("contraseña"));
+                empleado.setDni(rs.getInt("dni"));
+                empleado.setNombre(rs.getString("nombre"));
+                empleado.setApellido(rs.getString("apellido"));
+                empleado.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                empleado.setDirecion(rs.getString("direccion"));
+                empleado.setCargo(rs.getString("cargo"));
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"Error al acceder a la tabla usuarios");
+        }
+        
+        return empleado;
+    
     }
     
 }
