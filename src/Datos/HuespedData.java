@@ -24,6 +24,7 @@ public class HuespedData {
         String sql = "INSERT INTO huesped (nombre,dni,domicilio,correo,celular) "
                 + "VALUES (?,?,?,?,?)";
 
+       
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, huesped.getNombre());
