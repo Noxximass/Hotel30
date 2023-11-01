@@ -5,7 +5,10 @@
 package Vistas;
 
 import Datos.HabitacionData;
+import Entidades.habitacionDoble;
 import Entidades.habitacionSimple;
+import Entidades.habitacionSuit;
+import Entidades.habitacionTriple;
 
 /**
  *
@@ -329,7 +332,63 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
     private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
        
         int id = Integer.parseInt(jIdHabitacion.getText());
-       habd.BuscarHab(id);
+      
+        if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("simple")) {
+            habitacionSimple hs =  (habitacionSimple) habd.BuscarHab(id);
+            jCanPer.setText(""+hs.getCantPerMax());
+            jCantCamas.setText(""+hs.getCantCamas());
+            jTipoCamas.setText(hs.getTipoCamas());
+            jPrecioNoch.setText(""+hs.getPrecioNoch());
+            jTipoHabitacion.setSelectedIndex(1);
+            if (hs.isEstado()== true) {
+                jEstado.isEnabled();
+            }else{
+                jEstado.isDisplayable();
+            }
+        }
+        
+         if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("doble")) {
+            habitacionDoble hs =  (habitacionDoble) habd.BuscarHab(id);
+            jCanPer.setText(""+hs.getCantPerMax());
+            jCantCamas.setText(""+hs.getCantCamas());
+            jTipoCamas.setText(hs.getTipoCamas());
+            jPrecioNoch.setText(""+hs.getPrecioNoch());
+            jTipoHabitacion.setSelectedIndex(2);
+            if (hs.isEstado()== true) {
+                jEstado.isEnabled();
+            }else{
+                jEstado.isDisplayable();
+            }
+        }
+         
+          if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("Triple")) {
+            habitacionTriple hs =  (habitacionTriple) habd.BuscarHab(id);
+            jCanPer.setText(""+hs.getCantPerMax());
+            jCantCamas.setText(""+hs.getCantCamas());
+            jTipoCamas.setText(hs.getTipoCamas());
+            jPrecioNoch.setText(""+hs.getPrecioNoch());
+            jTipoHabitacion.setSelectedIndex(3);
+            if (hs.isEstado()== true) {
+                jEstado.isEnabled();
+            }else{
+                jEstado.isDisplayable();
+            }
+        }
+          
+           if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("Suit")) {
+            habitacionSuit hs =  (habitacionSuit) habd.BuscarHab(id);
+            jCanPer.setText(""+hs.getCantPerMax());
+            jCantCamas.setText(""+hs.getCantCamas());
+            jTipoCamas.setText(hs.getTipoCamas());
+            jPrecioNoch.setText(""+hs.getPrecioNoch());
+            jTipoHabitacion.setSelectedIndex(1);
+            if (hs.isEstado()== true) {
+                jEstado.isEnabled();
+            }else{
+                jEstado.isDisplayable();
+            }
+        }
+        
     }//GEN-LAST:event_jBuscarActionPerformed
 
 
