@@ -168,4 +168,20 @@ public class HuespedData {
         return huespedes;
 
     }
+    public void eliminarHuesped(int dni){
+        String sql="DELETE FROM huesped WHERE dni=?";
+        
+        try{
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            int exito=ps.executeUpdate();
+            if(exito==1){
+                JOptionPane.showMessageDialog(null, "alumno borrado");
+            }
+            
+        } catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "error al encontrar huesped");
+        }
+    
+    }
 }

@@ -79,6 +79,11 @@ public class HuespedView extends javax.swing.JInternalFrame {
         });
 
         jBeliminar.setText("Eliminar");
+        jBeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBeliminarActionPerformed(evt);
+            }
+        });
 
         jBguardar.setText("Guardar");
         jBguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +248,11 @@ public class HuespedView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "ingresar numeros validos");
         }
     }//GEN-LAST:event_jTnuevoActionPerformed
+
+    private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
+        hueData.eliminarHuesped(Integer.parseInt(jTdocumento.getText()));
+       
+    }//GEN-LAST:event_jBeliminarActionPerformed
     
     private void limpiarCampos(){
     
@@ -253,6 +263,8 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jTdomicilio.setText("");
         
     }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
