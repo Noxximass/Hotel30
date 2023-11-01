@@ -9,6 +9,17 @@ public class habitacionTriple extends tipoHab {
     protected String tipoCamas;
     private String tipohab;
 
+    public habitacionTriple(int cantCamas, double precioNoch, String tipoCamas, String tipohab, int cantPerMax, boolean estado) {
+        super(cantPerMax, estado);
+        this.cantCamas = cantCamas;
+        this.precioNoch = precioNoch;
+        this.tipoCamas = tipoCamas;
+        this.tipohab = tipohab;
+    }
+    
+    
+    
+
     public String getTipohab() {
         return tipohab;
     }
@@ -33,19 +44,7 @@ public class habitacionTriple extends tipoHab {
         this.cantPerMax = cantPerMax;
     }
 
-    public habitacionTriple(int cantCamas, double precioNoch, String tipoCamas) {
-        this.cantCamas = cantCamas;
-        this.precioNoch = precioNoch;
-        this.tipoCamas = tipoCamas;
-    }
-
-    public habitacionTriple(int cantCamas,String tipoCamas, int cantPerMax, boolean estado) {
-        super(cantPerMax, estado);
-        this.cantCamas = cantCamas;
-        this.precioNoch = 7000;
-        this.tipoCamas = tipoCamas;
-        this.tipohab = "triple";
-    }
+   
 
     public int getCantCamas() {
         return cantCamas;
