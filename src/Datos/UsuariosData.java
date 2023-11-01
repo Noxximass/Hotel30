@@ -39,6 +39,7 @@ public class UsuariosData {
             ps.setDate(6, Date.valueOf(usuario.getFechaNac()));
             ps.setString(7, usuario.getDirecion());
             ps.setString(8, usuario.getCargo());
+            ps.executeUpdate();
             
             ResultSet rs = ps.getGeneratedKeys();
             
@@ -52,14 +53,15 @@ public class UsuariosData {
         }
     }
     
-    public Usuarios ingresoDesmpleado(String usuario, String contraseña){
+    public Usuarios ingresoDeEmpleado(String usuario, String contraseña){
     
-        String sql =  "SELECT usuario, contraseña,dni, nombre, apellido , fechaNac,direccion , cargo FROM usuarios usuario=? AND contraseña=?";
+        String sql =  "SELECT usuario, contraseña, dni, nombre, apellido , fechaNac,direccion , cargo FROM usuarios WHERE usuario=? AND contraseña=?";
         Usuarios empleado = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,usuario);
             ps.setString(2,contraseña);
+            
             
             ResultSet rs = ps.executeQuery();
             
@@ -75,6 +77,7 @@ public class UsuariosData {
                 empleado.setDirecion(rs.getString("direccion"));
                 empleado.setCargo(rs.getString("cargo"));
             }
+            ps.close();
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla usuarios");
         }
