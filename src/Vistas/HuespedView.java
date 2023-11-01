@@ -45,7 +45,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jBnuevo = new javax.swing.JButton();
         jBeliminar = new javax.swing.JButton();
         jBguardar = new javax.swing.JButton();
-        jBsalir = new javax.swing.JButton();
+        jTnuevo = new javax.swing.JButton();
         jTcelular = new javax.swing.JTextField();
         jTcorreo = new javax.swing.JTextField();
 
@@ -71,7 +71,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Correo");
 
-        jBnuevo.setText("Nuevo");
+        jBnuevo.setText("Limpiar Campos");
         jBnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBnuevoActionPerformed(evt);
@@ -87,7 +87,12 @@ public class HuespedView extends javax.swing.JInternalFrame {
             }
         });
 
-        jBsalir.setText("Salir");
+        jTnuevo.setText("Nuevo");
+        jTnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTnuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,8 +126,8 @@ public class HuespedView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jBguardar)
                         .addGap(18, 18, 18)
-                        .addComponent(jBsalir)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(jTnuevo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +163,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
                     .addComponent(jBnuevo)
                     .addComponent(jBeliminar)
                     .addComponent(jBguardar)
-                    .addComponent(jBsalir))
+                    .addComponent(jTnuevo))
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
@@ -217,6 +222,27 @@ public class HuespedView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, " ingresar datos correctamente");
         }
     }//GEN-LAST:event_jBguardarActionPerformed
+
+    private void jTnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnuevoActionPerformed
+        try{
+            Integer dni=Integer.parseInt(jTdocumento.getText());
+            String nombre=jTnombre.getText();
+            String domicilio=jTdomicilio.getText();
+            Integer celular=Integer.parseInt(jTcelular.getText());
+            String correo=jTcorreo.getText();
+            
+            if(nombre.isEmpty()||domicilio.isEmpty()||correo.isEmpty()){
+                JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
+            }
+            if(huespedActual==null){
+                huespedActual= new Huesped(nombre, dni, domicilio, correo, celular);
+                hueData.guardarHuesped(huespedActual);
+            }
+            
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(this, "ingresar numeros validos");
+        }
+    }//GEN-LAST:event_jTnuevoActionPerformed
     
     private void limpiarCampos(){
     
@@ -234,7 +260,6 @@ public class HuespedView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBeliminar;
     private javax.swing.JButton jBguardar;
     private javax.swing.JButton jBnuevo;
-    private javax.swing.JButton jBsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -245,6 +270,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTdocumento;
     private javax.swing.JTextField jTdomicilio;
     private javax.swing.JTextField jTnombre;
+    private javax.swing.JButton jTnuevo;
     private javax.swing.JLabel jlabel;
     // End of variables declaration//GEN-END:variables
 }
