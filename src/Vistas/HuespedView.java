@@ -49,6 +49,8 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jTcelular = new javax.swing.JTextField();
         jTcorreo = new javax.swing.JTextField();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("Huespedes");
 
@@ -79,6 +81,11 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jBeliminar.setText("Eliminar");
 
         jBguardar.setText("Guardar");
+        jBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBguardarActionPerformed(evt);
+            }
+        });
 
         jBsalir.setText("Salir");
 
@@ -178,6 +185,38 @@ public class HuespedView extends javax.swing.JInternalFrame {
         limpiarCampos();
         huespedActual=null;
     }//GEN-LAST:event_jBnuevoActionPerformed
+
+    private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
+        try{
+            Integer dni=Integer.parseInt(jTdocumento.getText());
+            String nombre=jTnombre.getText();
+            String domicilio=jTdomicilio.getText();
+            String correo=jTcorreo.getText();
+            Integer celular=Integer.parseInt(jTcelular.getText());
+            if(nombre.isEmpty()|| domicilio.isEmpty()||correo.isEmpty()){
+                JOptionPane.showMessageDialog(this,"no puede haber campos vacios");
+            }
+            
+            if(huespedActual!=null){
+                
+                huespedActual.setDni(dni);
+                huespedActual.setNombre(nombre);
+                huespedActual.setDomicilio(domicilio);
+                huespedActual.setCorreo(correo);
+                huespedActual.setCelular(celular);
+                hueData.actualizarHuesped(huespedActual, dni);
+            }else {
+                
+                huespedActual= new Huesped(nombre, dni, domicilio, correo, celular);
+                hueData.guardarHuesped(huespedActual);
+                
+            }
+            
+        
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(this, " ingresar datos correctamente");
+        }
+    }//GEN-LAST:event_jBguardarActionPerformed
     
     private void limpiarCampos(){
     
