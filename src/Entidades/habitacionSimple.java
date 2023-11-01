@@ -9,19 +9,15 @@ public class habitacionSimple extends tipoHab {
     protected String tipoCamas;
     protected String tipohab;
 
-    public habitacionSimple(int cantCamas, double precioNoch, String tipoCamas) {
+    public habitacionSimple(int cantCamas, double precioNoch, String tipoCamas, String tipohab, int cantPerMax, boolean estado) {
+        super(cantPerMax, estado);
         this.cantCamas = cantCamas;
         this.precioNoch = precioNoch;
         this.tipoCamas = tipoCamas;
+        this.tipohab = tipohab;
     }
 
-    public habitacionSimple(String tipoCamas, int cantPerMax, boolean estado) {
-        super(cantPerMax, estado);
-        this.cantCamas = 1;
-        this.precioNoch = 3000;
-        this.tipoCamas = tipoCamas;
-        this.tipohab = "simple";
-    }
+  
 
     public String getTipohab() {
         return tipohab;

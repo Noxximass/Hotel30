@@ -3,15 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Datos/HuespedData.java</file>
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Vistas/HuespedView.java</file>
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Datos/HabitacionData.java</file>
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Vistas/MenuView.java</file>
-=======
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Vistas/TipoHabitacionesView.java</file>
-            <file>file:/C:/Users/franc/OneDrive/Documentos/GitHub/Hotel30/src/Entidades/tipoHab.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Vistas/MenuView.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Entidades/habitacionSimple.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Entidades/habitacionSuit.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Datos/UsuariosData.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Vistas/RealizarReservaView.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Datos/HuespedData.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Vistas/AgregarHabitacionesView.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Vistas/Bienvenida.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Vistas/HuespedView.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Entidades/habitacionDoble.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/hotel30/Hotel30.java</file>
+            <file>file:/C:/Users/Tomas/Desktop/Argentina%204.0/Hotel30/src/Entidades/habitacionTriple.java</file>
         </group>
     </open-files>
 </project-private>

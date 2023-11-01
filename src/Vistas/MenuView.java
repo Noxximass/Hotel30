@@ -53,6 +53,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenu1.setText("Administracion");
 
         jMenuItem1.setText("Agregar Habitaciones");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -84,6 +89,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenu4.setText("Habitaciones");
 
         jMenuItem3.setText("Tipos de Habitaciones");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem3);
 
         jMenuBar1.add(jMenu4);
@@ -122,6 +132,28 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.moveToFront(huespedView);
         
     }//GEN-LAST:event_jMenuHuespedActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        TipoHabitacionesView th = new TipoHabitacionesView();
+         th.setVisible(true);
+        escritorio.add(th);
+        escritorio.moveToFront(th);
+       
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+         escritorio.removeAll();
+        escritorio.repaint();
+        AgregarHabitacionesView th = new AgregarHabitacionesView();
+         th.setVisible(true);
+        escritorio.add(th);
+        escritorio.moveToFront(th);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
