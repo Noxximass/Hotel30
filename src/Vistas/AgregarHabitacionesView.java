@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Datos.HabitacionData;
 import Entidades.habitacionSimple;
 
 /**
@@ -12,9 +13,7 @@ import Entidades.habitacionSimple;
  */
 public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AgregarHabitacionesView
-     */
+    HabitacionData habd = new HabitacionData();
     public AgregarHabitacionesView() {
         initComponents();
     }
@@ -79,6 +78,11 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         });
 
         jModificar.setText("Modificar");
+        jModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jModificarActionPerformed(evt);
+            }
+        });
 
         jEliminar.setText("Eliminar");
 
@@ -176,14 +180,57 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
        
-        String opcion = jTipoHabitacion.toString();
+        String opcion = jTipoHabitacion.getSelectedItem().toString();
         
         switch (opcion){
         
             case "Simple": {
                 
-                habitacionSimple hs = new habitacionSimple(ALLBITS, WIDTH, opcion, title, PROPERTIES, isIcon);
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.CargarHab(hs);
+            jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
             
+            }
+            
+            case "Doble": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.CargarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+            case "Triple": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.CargarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+            case "Suit": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.CargarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
             
             }
         
@@ -192,6 +239,11 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         
         }
     }//GEN-LAST:event_jGuardarActionPerformed
+
+    private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
