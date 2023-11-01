@@ -16,6 +16,14 @@ public class habitacionTriple extends tipoHab {
         this.tipoCamas = tipoCamas;
         this.tipohab = tipohab;
     }
+
+    public habitacionTriple(int cantCamas, double precioNoch, String tipoCamas, String tipohab, int idHabitacion, int cantPerMax, boolean estado) {
+        super(idHabitacion, cantPerMax, estado);
+        this.cantCamas = cantCamas;
+        this.precioNoch = precioNoch;
+        this.tipoCamas = tipoCamas;
+        this.tipohab = tipohab;
+    }
     
     
     

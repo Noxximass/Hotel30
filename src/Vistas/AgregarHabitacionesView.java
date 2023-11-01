@@ -43,6 +43,9 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         jModificar = new javax.swing.JButton();
         jEliminar = new javax.swing.JButton();
         jTipoHabitacion = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jIdHabitacion = new javax.swing.JTextField();
+        jBuscar = new javax.swing.JButton();
 
         jLabel1.setText("Administracion Habitaciones");
 
@@ -88,54 +91,72 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
         jTipoHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suit" }));
 
+        jLabel8.setText("ID Habitacion");
+
+        jBuscar.setText("Buscar");
+        jBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel1))
+                        .addComponent(jGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jEliminar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 11, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPrecioNoch)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jEstado))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jGuardar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jModificar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jEliminar))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5))
-                                        .addGap(2, 2, 2)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jCanPer)
-                                            .addComponent(jCantCamas)
-                                            .addComponent(jTipoCamas, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(jTipoHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(15, 15, 15))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCanPer)
+                            .addComponent(jCantCamas)
+                            .addComponent(jTipoCamas)
+                            .addComponent(jTipoHabitacion, 0, 139, Short.MAX_VALUE)
+                            .addComponent(jIdHabitacion)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jEstado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPrecioNoch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBuscar))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jIdHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -152,19 +173,22 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTipoCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jPrecioNoch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jEstado))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jPrecioNoch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jEstado)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jGuardar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jModificar)
-                        .addComponent(jEliminar)))
-                .addGap(0, 23, Short.MAX_VALUE))
+                    .addComponent(jModificar)
+                    .addComponent(jEliminar))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -242,16 +266,81 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         // TODO add your handling code here:
+        String opcion = jTipoHabitacion.getSelectedItem().toString();
         
+        switch (opcion){
+        
+            case "Simple": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.modificarHab(hs);
+            jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+            
+            case "Doble": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.modificarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+            case "Triple": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.modificarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+            case "Suit": {
+                
+                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
+                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            habd.modificarHab(hs);
+             jTipoCamas.setText("");
+            jCantCamas.setText("");
+            jTipoCamas.setText("");
+            jCanPer.setText("");
+                break;
+            
+            }
+        
+        
+        
+        
+        }
     }//GEN-LAST:event_jModificarActionPerformed
+
+    private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
+       
+        int id = Integer.parseInt(jIdHabitacion.getText());
+       habd.BuscarHab(id);
+    }//GEN-LAST:event_jBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBuscar;
     private javax.swing.JTextField jCanPer;
     private javax.swing.JTextField jCantCamas;
     private javax.swing.JButton jEliminar;
     private javax.swing.JRadioButton jEstado;
     private javax.swing.JButton jGuardar;
+    private javax.swing.JTextField jIdHabitacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,6 +348,7 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JButton jModificar;
     private javax.swing.JTextField jPrecioNoch;
     private javax.swing.JTextField jTipoCamas;

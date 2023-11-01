@@ -13,6 +13,13 @@ public class tipoHab {
 
         this.cantPerMax = cantPerMax;
         this.estado = estado;
+        this.idHabitacion=0;
+    }
+
+    public tipoHab(int idHabitacion, int cantPerMax, boolean estado) {
+        this.idHabitacion = idHabitacion;
+        this.cantPerMax = cantPerMax;
+        this.estado = estado;
     }
 
     public int getIdHabitacion() {
