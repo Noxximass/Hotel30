@@ -76,7 +76,7 @@ public class HuespedData {
 
     public Huesped buscarHuespedDni(int dni) {
 
-        String sql = "SELECT nombre, domicilio, correo, celular, alojado FROM huesped WHERE dni=?";
+        String sql = "SELECT nombre, domicilio, correo, celular FROM huesped WHERE dni=?";
         Huesped huesped = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -91,7 +91,6 @@ public class HuespedData {
                 huesped.setDomicilio(rs.getString("domicilio"));
                 huesped.setCorreo(rs.getString("correo"));
                 huesped.setCelular(rs.getInt("celular"));
-                huesped.setAlojado(rs.getBoolean("alojado"));
 
             } else {
 
