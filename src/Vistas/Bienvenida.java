@@ -134,17 +134,11 @@ public class Bienvenida extends javax.swing.JFrame {
         if (us.getUsuario().equals(usd.ingresoDeEmpleado(usuario, contraseña).getUsuario()) &&
             us.getContraseña().equals(usd.ingresoDeEmpleado(usuario, contraseña).getContraseña())    ) {
             JOptionPane.showMessageDialog(null, "Bienvenido que tenga una linda jornada");
-            
-        escritorio.removeAll();
-        escritorio.repaint();
+        this.dispose();    
         MenuView mv = new MenuView();
         mv.setVisible(true);
-        escritorio.add(mv);
-        escritorio.moveToFront(mv);
         
-        Bienvenida bn = new Bienvenida();
-        bn.setVisible(false);
-        bn.removeAll();
+        
         }
        
        }catch (NullPointerException ex) {
