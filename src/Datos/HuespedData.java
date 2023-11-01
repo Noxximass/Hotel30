@@ -50,20 +50,20 @@ public class HuespedData {
     }
 // actualizar es para modificar buscando con el dni los datos de huespeded o actualizar datos
 
-    public void actualizarHuesped(Huesped huesped,int dni) {
+    public void actualizarHuesped(Huesped huesped, int dni) {
 
-        String sql = "UPDATE huesped SET nombre= ? ,domicilio=? , correo=?, celular=? WHERE dni=?";
+        String sql = "UPDATE huesped SET nombre= ?,domicilio=?, correo= ?, celular=? "
+                + "WHERE dni=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,huesped.getNombre());
+            ps.setString(1, huesped.getNombre());
             ps.setString(2, huesped.getDomicilio());
             ps.setString(3, huesped.getCorreo());
             ps.setInt(4, huesped.getCelular());
-            ps.setInt(5, dni);
-
+            ps.setInt(5,dni);
             int exito = ps.executeUpdate();
-            if (exito == 1) {
+            if (exito==1) {
 
                 JOptionPane.showMessageDialog(null, "Huesped actualizado");
             }

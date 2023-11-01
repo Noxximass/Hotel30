@@ -13,6 +13,16 @@ public class Huesped {
     public Huesped() {
     }
 
+    public Huesped(String nombre, int dni, String domicilio, String correo, int celular) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.correo = correo;
+        this.celular = celular;
+    }
+
+    
+
     public Huesped(int idHuesped, String nombre, int dni, String domicilio, String correo, int celular, boolean alojado) {
         this.idHuesped = idHuesped;
         this.nombre = nombre;
