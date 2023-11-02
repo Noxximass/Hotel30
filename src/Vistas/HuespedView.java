@@ -56,6 +56,12 @@ public class HuespedView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Documento:");
 
+        jTdocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTdocumentoKeyTyped(evt);
+            }
+        });
+
         jBbuscar.setText("Buscar");
         jBbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +70,12 @@ public class HuespedView extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setText("Nombre:");
+
+        jTnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTnombreKeyTyped(evt);
+            }
+        });
 
         jlabel.setText("Domicilio");
 
@@ -96,6 +108,12 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jTnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTnuevoActionPerformed(evt);
+            }
+        });
+
+        jTcelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTcelularKeyTyped(evt);
             }
         });
 
@@ -253,6 +271,45 @@ public class HuespedView extends javax.swing.JInternalFrame {
         hueData.eliminarHuesped(Integer.parseInt(jTdocumento.getText()));
        
     }//GEN-LAST:event_jBeliminarActionPerformed
+
+    private void jTdocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTdocumentoKeyTyped
+        // TODO add your handling code here:
+        
+         char validar= evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jTdocumentoKeyTyped
+
+    private void jTcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTcelularKeyTyped
+        // TODO add your handling code here:
+        
+         char validar= evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jTcelularKeyTyped
+
+    private void jTnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTnombreKeyTyped
+        // TODO add your handling code here:
+        
+         char validar= evt.getKeyChar();
+        
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jTnombreKeyTyped
     
     private void limpiarCampos(){
     

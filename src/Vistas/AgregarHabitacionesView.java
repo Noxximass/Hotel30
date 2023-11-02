@@ -54,11 +54,22 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cantidad Max de Persona");
 
+        jCanPer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jCanPerKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Cantidad de Camas:");
 
         jCantCamas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCantCamasActionPerformed(evt);
+            }
+        });
+        jCantCamas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jCantCamasKeyTyped(evt);
             }
         });
 
@@ -71,6 +82,12 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         });
 
         jLabel6.setText("Precio Noche");
+
+        jPrecioNoch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPrecioNochKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Estado");
 
@@ -257,6 +274,42 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "solo se admiten numeros");
         }
     }//GEN-LAST:event_jIdHabitacionKeyTyped
+
+    private void jCanPerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCanPerKeyTyped
+        // TODO add your handling code here:
+         char validar= evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jCanPerKeyTyped
+
+    private void jCantCamasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCantCamasKeyTyped
+        // TODO add your handling code here:
+         char validar= evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jCantCamasKeyTyped
+
+    private void jPrecioNochKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPrecioNochKeyTyped
+        // TODO add your handling code here:
+         char validar= evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(null, "solo se admiten numeros");
+        }
+    }//GEN-LAST:event_jPrecioNochKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

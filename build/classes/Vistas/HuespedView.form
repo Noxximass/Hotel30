@@ -125,6 +125,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTdocumento">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTdocumentoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBbuscar">
       <Properties>
@@ -140,6 +143,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTnombre">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTnombreKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jlabel">
       <Properties>
@@ -191,6 +197,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTcelular">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTcelularKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTcorreo">
     </Component>
