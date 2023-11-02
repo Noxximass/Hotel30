@@ -267,7 +267,7 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         
         char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             
@@ -279,7 +279,7 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             
@@ -291,7 +291,7 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             
@@ -303,7 +303,7 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             

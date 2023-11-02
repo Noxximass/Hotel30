@@ -277,7 +277,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
         
          char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             
@@ -290,7 +290,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
         
          char validar= evt.getKeyChar();
         
-        if (Character.isDigit(validar)) {
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
             
@@ -303,7 +303,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
         
          char validar= evt.getKeyChar();
         
-        if (Character.isLetter(validar)) {
+        if (Character.isDigit(validar)) {
             getToolkit().beep();
             evt.consume();
             
