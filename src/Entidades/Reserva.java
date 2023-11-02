@@ -3,10 +3,10 @@ package Entidades;
 import java.time.LocalDate;
 
 public class Reserva {
-    private Usuarios usuario;
+    private Usuarios usuario; 
     private int idReserva;
-    private Huesped huesped;
-    private tipoHab habitacion;
+    private Huesped huesped; // huspedData buscarporid huesped.getDni
+    private tipoHab habitacion; // habitacionData buscarporid hab.getTipoHab
     private int cantPer;
     private LocalDate fechaIng;
     private LocalDate fechaSal;
