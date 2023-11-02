@@ -109,7 +109,7 @@ public class HuespedData {
 
     public Huesped buscarHuespedId(int id) {
 
-        String sql = "SELECT nombre,dni, domicilio, correo, celular, alojado FROM huesped WHERE idHuesped=?";
+        String sql = "SELECT nombre,dni, domicilio, correo, celular FROM huesped WHERE idHuesped=?";
         Huesped huesped = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -125,7 +125,7 @@ public class HuespedData {
                 huesped.setDomicilio(rs.getString("domicilio"));
                 huesped.setCorreo(rs.getString("correo"));
                 huesped.setCelular(rs.getInt("celular"));
-                huesped.setAlojado(rs.getBoolean("alojado"));
+                
 
             } else {
 
