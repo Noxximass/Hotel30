@@ -16,6 +16,29 @@ public class Reserva {
     public Reserva() {
     }
 
+    public Reserva(Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
+        this.huesped = huesped;
+        this.habitacion = habitacion;
+        this.cantPer = cantPer;
+        this.fechaIng = fechaIng;
+        this.fechaSal = fechaSal;
+        this.importe = importe;
+        this.estado = estado;
+    }
+
+    public Reserva(int idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
+        this.idReserva = idReserva;
+        this.huesped = huesped;
+        this.habitacion = habitacion;
+        this.cantPer = cantPer;
+        this.fechaIng = fechaIng;
+        this.fechaSal = fechaSal;
+        this.importe = importe;
+        this.estado = estado;
+    }
+    
+    
+
     public Reserva(Usuarios usuario, int idReserva, Huesped huesped, tipoHab habitacion, int cantPer, LocalDate fechaIng, LocalDate fechaSal, double importe, boolean estado) {
         this.usuario = usuario;
         this.idReserva = idReserva;

@@ -49,6 +49,7 @@ public class HuespedView extends javax.swing.JInternalFrame {
         jTcelular = new javax.swing.JTextField();
         jTcorreo = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 255, 0));
         setClosable(true);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N

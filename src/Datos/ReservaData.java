@@ -213,5 +213,36 @@ public class ReservaData {
         return reservas;
 
     }
+    
+    public Reserva buscarReserva(int id){
+        Huesped huespedact= null;
+        tipoHab habact=null;
+        
+        String sql="SELECT huesped, habitacion, cantPer, fechaIng, fechaSal, importe, estado FROM reserva WHERE idReserva =?";
+        Reserva reserva=null;
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                reserva=new Reserva();
+                reserva.setIdReserva(id);
+                huespedact= hud.buscarHuespedId(rs.getInt("huesped"));
+                reserva.setCantPer(rs.getInt("cantPer"));
+                reserva.setHuesped(huespedact);
+                habact= had.BuscarHab(rs.getInt("habitacion"));
+                reserva.setHabitacion(habact);
+                reserva.setFechaIng(rs.getDate("fechaIng").toLocalDate());
+                reserva.setFechaSal(rs.getDate("fechaSal").toLocalDate());
+                reserva.setImporte(rs.getDouble("importe"));
+                reserva.setEstado(rs.getBoolean("estado"));
+               
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a tabla reserva");
+        }
+        return reserva;
+    }
 
 }
