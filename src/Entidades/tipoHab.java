@@ -88,7 +88,12 @@ public class tipoHab {
         this.tipohab = tipohab;
     }
 
-   
+    @Override
+    public String toString() {
+        return "tipoHab{" + "idHabitacion=" + idHabitacion + ", cantPerMax=" + cantPerMax + ", estado=" + estado + ", cantCamas=" + cantCamas + ", precioNoch=" + precioNoch + ", tipoCamas=" + tipoCamas + ", tipohab=" + tipohab + '}';
+    }
+
+    
 
  
 

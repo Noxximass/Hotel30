@@ -5,10 +5,7 @@
 package Vistas;
 
 import Datos.HabitacionData;
-import Entidades.habitacionDoble;
-import Entidades.habitacionSimple;
-import Entidades.habitacionSuit;
-import Entidades.habitacionTriple;
+import Entidades.tipoHab;
 
 /**
  *
@@ -207,188 +204,42 @@ public class AgregarHabitacionesView extends javax.swing.JInternalFrame {
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
        
-        String opcion = jTipoHabitacion.getSelectedItem().toString();
-        
-        switch (opcion){
-        
-            case "Simple": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+            tipoHab hs = new tipoHab(Integer.parseInt(jCanPer.getText()),jEstado.isEnabled(),Integer.parseInt(jCantCamas.getText()),
+                       (double) Integer.parseInt(jPrecioNoch.getText()),jTipoCamas.getText(), jTipoHabitacion.getSelectedItem().toString());
             habd.CargarHab(hs);
             jTipoCamas.setText("");
             jCantCamas.setText("");
-            jTipoCamas.setText("");
+            jPrecioNoch.setText("");
             jCanPer.setText("");
-                break;
             
-            }
             
-            case "Doble": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.CargarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
             
-            }
-            case "Triple": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.CargarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
-            
-            }
-            case "Suit": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.CargarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
-            
-            }
-        
-        
-        
-        
-        }
+           
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
-        // TODO add your handling code here:
-        String opcion = jTipoHabitacion.getSelectedItem().toString();
-        
-        switch (opcion){
-        
-            case "Simple": {
+
                 
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
+                  tipoHab hs = new tipoHab(Integer.parseInt(jIdHabitacion.getText()),Integer.parseInt(jCanPer.getText()),jEstado.isEnabled(),Integer.parseInt(jCantCamas.getText()),
+                       Double.parseDouble(jPrecioNoch.getText()),jTipoCamas.getText(), jTipoHabitacion.getSelectedItem().toString());
+                  System.out.println(hs);
             habd.modificarHab(hs);
             jTipoCamas.setText("");
             jCantCamas.setText("");
-            jTipoCamas.setText("");
+            jPrecioNoch.setText("");
             jCanPer.setText("");
-                break;
-            
-            }
-            
-            case "Doble": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.modificarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
-            
-            }
-            case "Triple": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.modificarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
-            
-            }
-            case "Suit": {
-                
-                habitacionSimple hs = new habitacionSimple(Integer.parseInt(jCantCamas.getText()), (double)Integer.parseInt(jCantCamas.getText()),
-                        jTipoCamas.getText().toString(),jTipoHabitacion.getSelectedItem().toString(),Integer.parseInt(jIdHabitacion.getText()), Integer.parseInt(jCanPer.getText()), jEstado.isSelected());
-            habd.modificarHab(hs);
-             jTipoCamas.setText("");
-            jCantCamas.setText("");
-            jTipoCamas.setText("");
-            jCanPer.setText("");
-                break;
-            
-            }
-        
-        
-        
-        
-        }
+                 
     }//GEN-LAST:event_jModificarActionPerformed
 
     private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
        
-        int id = Integer.parseInt(jIdHabitacion.getText());
-      
-        if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("simple")) {
-            habitacionSimple hs =  (habitacionSimple) habd.BuscarHab(id);
-            jCanPer.setText(""+hs.getCantPerMax());
-            jCantCamas.setText(""+hs.getCantCamas());
+        tipoHab hs = habd.BuscarHab(Integer.parseInt(jIdHabitacion.getText()));
+            
             jTipoCamas.setText(hs.getTipoCamas());
-            jPrecioNoch.setText(""+hs.getPrecioNoch());
-            jTipoHabitacion.setSelectedIndex(1);
-            if (hs.isEstado()== true) {
-                jEstado.isEnabled();
-            }else{
-                jEstado.isDisplayable();
-            }
-        }
-        
-         if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("doble")) {
-            habitacionDoble hs =  (habitacionDoble) habd.BuscarHab(id);
-            jCanPer.setText(""+hs.getCantPerMax());
             jCantCamas.setText(""+hs.getCantCamas());
-            jTipoCamas.setText(hs.getTipoCamas());
             jPrecioNoch.setText(""+hs.getPrecioNoch());
-            jTipoHabitacion.setSelectedIndex(2);
-            if (hs.isEstado()== true) {
-                jEstado.isEnabled();
-            }else{
-                jEstado.isDisplayable();
-            }
-        }
-         
-          if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("Triple")) {
-            habitacionTriple hs =  (habitacionTriple) habd.BuscarHab(id);
             jCanPer.setText(""+hs.getCantPerMax());
-            jCantCamas.setText(""+hs.getCantCamas());
-            jTipoCamas.setText(hs.getTipoCamas());
-            jPrecioNoch.setText(""+hs.getPrecioNoch());
-            jTipoHabitacion.setSelectedIndex(3);
-            if (hs.isEstado()== true) {
-                jEstado.isEnabled();
-            }else{
-                jEstado.isDisplayable();
-            }
-        }
-          
-           if (habd.BuscarHab(id).getTipoHab().equalsIgnoreCase("Suit")) {
-            habitacionSuit hs =  (habitacionSuit) habd.BuscarHab(id);
-            jCanPer.setText(""+hs.getCantPerMax());
-            jCantCamas.setText(""+hs.getCantCamas());
-            jTipoCamas.setText(hs.getTipoCamas());
-            jPrecioNoch.setText(""+hs.getPrecioNoch());
-            jTipoHabitacion.setSelectedIndex(1);
-            if (hs.isEstado()== true) {
-                jEstado.isEnabled();
-            }else{
-                jEstado.isDisplayable();
-            }
-        }
-        
+            jTipoHabitacion.setSelectedItem(hs.getTipohab());
     }//GEN-LAST:event_jBuscarActionPerformed
 
 
