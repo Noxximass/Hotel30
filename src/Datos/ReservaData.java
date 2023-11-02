@@ -4,6 +4,7 @@ import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.tipoHab;
 import java.sql.*;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,12 @@ public class ReservaData {
 
         String sql = "INSERT INTO reserva (usuario,huesped,habitacion,cantPer,fechaIng,fechaSal,importe,estado)"
                 + "VALUES (?,?,?,?,?,?,?,?)";
+        
+        double importe=0;
+        
+        long dias = Duration.between(reserva.getFechaIng(), reserva.getFechaSal()).toDays();
+        
+        importe = importe + dias * reserva.getHabitacion().getPrecioNoch();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -37,7 +44,7 @@ public class ReservaData {
             ps.setInt(4, reserva.getCantPer());
             ps.setDate(5, Date.valueOf(reserva.getFechaIng()));
             ps.setDate(6, Date.valueOf(reserva.getFechaSal()));
-            ps.setDouble(7, reserva.getImporte());
+            ps.setDouble(7,importe);
             ps.setBoolean(8, reserva.isEstado());
             ps.executeUpdate();
 
